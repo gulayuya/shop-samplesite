@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>来客管理画面</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/managementPortal.css">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Sample-ManagementPortal</h1>
+    </header>
+    <main class="main">
+        <div class="main-wrapper">
+            <div class="main-container">
+                <div class="main-createTable">
+                    <h2>[営業開始処理]</h2>
+                    <form id="cTable">
+                        <button type="button" id="do_cTable">テーブルを作成</button>
+                        <a>※営業開始時に必ずこの処理を1回実行します</a>
+                    </form>
+                    <div id="cTable_response">
+                        <!-- ここに処理実行後の結果が表示される -->
+                    </div>
+                </div>
+                <div class="main-backupTable">
+                    <h2>[営業終了処理]</h2>
+                    <form id="bTable">
+                        <button type="button" id="do_bTable">バックアップを作成</button>
+                        <a>※営業終了時に必ずこの処理を1回実行します</a>
+                    </form>
+                    <div id="bTable_response">
+                        <!-- ここに処理実行後の結果が表示される -->
+                    </div>
+                </div>
+                <div class="main-divide">
+                    <div class="main-divide-eTimeProcess">
+                        <h2>[入店時処理]</h2>
+                        <form id="eTimeinfo">
+                            <a>管理番号(半角で入力):</a>
+                            <input type="number" name="number" class="numbox">
+                            <br>
+                            <a>属性情報(平日or休日):</a><br>
+                            <label><input type="radio" name="pDivi" value="weekday">平日</label>
+                            <label><input type="radio" name="pDivi" value="holiday" checked="checked">休日</label>
+                            <br>
+                            <a>属性情報(相席orグループ):</a><br>
+                            <label><input type="radio" name="attr" value="solo" checked="checked">相席</label>
+                            <label><input type="radio" name="attr" value="group">グループ</label>
+                            <br>
+                            <a>入店情報を確定-></a>
+                            <button type="button" id="send_eTimeinfo" class="exebox">実行</button>
+                        </form>
+                        <div id="eTimeinfo_response">
+                            <p>↓ここに実行結果が表示されます↓</p>
+                        </div>
+                    </div>
+                    <div class="main-divide-lTimeProcess">
+                        <h2>[退店時処理]</h2>
+                        <form id="lTimeinfo">
+                            <a>管理番号(半角で入力):</a>
+                            <input type="number" name="number" class="numbox">
+                            <br>
+                            <a>入店情報を確定-></a>
+                            <button type="button" id="send_lTimeinfo" class="exebox">実行</button>
+                        </form>
+                        <div id="lTimeinfo_response">
+                            <p>↓ここに実行結果が表示されます↓</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-modify">
+                    <h2>[テーブル修正処理]</h2>
+                    <form id="modifyTable">
+                        <h3>〇情報を修正する</h3>
+                        <a>対象の管理番号を入力(半角で入力):</a>
+                        <input type="number" name="number" class="numbox">
+                        <br>
+                        <a>変更するカラム(列)を選択:</a><br>
+                        <label><input type="radio" name="modifyTarget" value="eTime" checked="checked">入店時間</label>
+                        <label><input type="radio" name="modifyTarget" value="lTime">退店時間</label>
+                        <label><input type="radio" name="modifyTarget" value="cAttr" >属性</label>
+                        <label><input type="radio" name="modifyTarget" value="pDivi" >区分</label>
+                        <br>
+                        <div class="supportbox">
+                            <p>入力形式</p>
+                            <ul>
+                                <li>●入店時間 → hh:mm:ss</li>
+                                <li>●退店時間 → hh:mm:ss</li>
+                                <li>●属性 → solo もしくは group</li>
+                                <li>●区分 → weekday もしくは holiday</li>
+                            </ul>
+                        </div>
+                        <a>変更内容を入力(半角で入力):</a>
+                        <input type="text" name="modifyContent" class="textbox">
+                        <br>
+                        <a>入店情報を確定-></a>
+                        <button type="button" id="send_modifyTable" class="exebox">実行</button>
+                    </form>
+                    <div id="modifyTable_response">
+                        <p>↓ここに実行結果が表示されます↓</p>
+                    </div>
+                    <form id="deleteRow">
+                        <h3>〇行を削除する(※操作のやり直しは不可のため、慎重に実行すること)</h3>
+                        <a>対象の管理番号を入力(半角で入力):</a>
+                        <input type="number" name="number" class="numbox">
+                        <br>
+                        <a>入店情報を確定-></a>
+                        <button type="button" id="send_deleteRow" class="exebox">実行</button>
+                    </form>
+                    <div id="deleteRow_response">
+                        <p>↓ここに実行結果が表示されます↓</p>
+                    </div>
+                </div>
+            </div>
+            <div class="main-container">
+                <div class="main-showTable">
+                    <h2>[顧客一覧]</h2>
+                    <form id="sTable">
+                        <button type="button" id="show_table">最新の情報に更新</button>
+                        <a>入退店の状況が分かる表です</a>
+                    </form>
+                    <div id="sTable_response">
+                    </div>
+                </div>
+                <div class="main-explain">
+                    <h2>[この管理画面の使い方]</h2>
+                    <p>1.営業開始前に1度だけ<span>[テーブル作成処理]</span>を実行します。</p>
+                    <p class="_s">2回目以降は既にテーブルが作成されている旨が表示されるだけです。</p>
+                    <p>2.お客様が来店した際に番号札を人数分用意し、1枚ずつ<span>[入店時処理]</span>を実行します。</p>
+                    <p class="_s">番号は半角で入力してください。属性情報は料金計算や店内状況を表示するwebサービスに利用するので間違わずに入力してください。</p>
+                    <p>3.<span>[入店処理]</span>を実行すると、データベースに情報が登録されます。この説明文の上部にある<span>[管理表]</span>の「最新の情報に更新」のボタンを押して、情報が正しく登録されているか確認してください。</p>
+                    <p class="_s">情報が正しく登録されていない場合は[テーブル修正処理]で正しい情報を入力して修正してください。修正を実行後に[管理表]を更新して情報が正しいことを確認してください。</p>
+                    <p>4.お客様が退店される際は、人数分の番号札を受け取り、1枚ずつ<span>[退店時処理]</span>を実行します。</p>
+                    <p class="_s">[退店時処理]の枠内に料金が表示されるので、その金額をお客様に伝えて、スマレジで精算処理を実行してください。</p>
+                    <p>その他</p>
+                    <p class="_s">・行を削除したい場合は[テーブル修正処理]の下部に「〇行を削除する」欄があるので、そこで処理を実行してください。この処理は実行すると<span>取り消しができない</span>ので番号間違いなどに注意してください。</p>
+                    <p class="_s">・管理画面の使い方で分からない点がある場合は佐藤に連絡をお願いします。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<script src="js/script.js"></script>
+</body>
+</html>

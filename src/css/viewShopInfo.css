@@ -1,0 +1,146 @@
+@charset "UTF-8";
+html {
+  font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header {
+  background-color: #293a4a;
+  height: 50px;
+  vertical-align: middle;
+}
+
+.header h1 {
+  color: #f5f5f5;
+  font-size: 1.25em;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  margin-left: 1em;
+  line-height: 50px;
+}
+
+.main {
+  padding-top: 20px;
+}
+
+.main-shopStatus {
+  width: 90vw;
+  max-width: 1024px;
+  margin: 0 auto 15px auto;
+}
+
+.main-shopStatus ._open {
+  height: 15vh;
+  background-color: #ffb499;
+  border-radius: 5px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 8px gray;
+          box-shadow: 0 0 8px gray;
+}
+
+.main-shopStatus ._open p {
+  font-size: 0.8em;
+  line-height: 5vh;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+.main-shopStatus ._open span {
+  font-size: 1.56em;
+}
+
+.main-shopStatus ._close {
+  height: 15vh;
+  background-color: #d3d3d3;
+  border-radius: 5px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 8px gray;
+          box-shadow: 0 0 8px gray;
+}
+
+.main-shopStatus ._close p {
+  font-size: 0.8em;
+  line-height: 5vh;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+.main-shopStatus ._close span {
+  font-size: 1.56em;
+}
+
+.main-customerStatus {
+  width: 90vw;
+  max-width: 1024px;
+  margin: 0 auto 15px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-customerStatus-solo {
+  width: 100%;
+  background-color: #e0ffff;
+  border-radius: 5px;
+  margin-right: 2vw;
+  text-align: center;
+  -webkit-box-shadow: 0 0 8px gray;
+          box-shadow: 0 0 8px gray;
+  font-size: 1.25em;
+}
+
+.main-customerStatus-solo span {
+  font-size: 1.56em;
+}
+
+.main-customerStatus-group {
+  width: 100%;
+  background-color: #e0ffff;
+  border-radius: 5px;
+  margin-right: 2vw;
+  text-align: center;
+  -webkit-box-shadow: 0 0 8px gray;
+          box-shadow: 0 0 8px gray;
+  font-size: 1.25em;
+}
+
+.main-customerStatus-group span {
+  font-size: 1.56em;
+}
+
+.main-shopInfo {
+  width: 90vw;
+  max-width: 1024px;
+  height: auto;
+  margin: 0 auto 30px auto;
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 8px gray;
+          box-shadow: 0 0 8px gray;
+}
+
+.main-shopInfo p {
+  font-size: 0.8em;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  line-height: 5vh;
+  padding: 10px;
+}
+
+.main-shopInfo a {
+  font-size: 0.8em;
+}
+/*# sourceMappingURL=viewShopInfo.css.map */
